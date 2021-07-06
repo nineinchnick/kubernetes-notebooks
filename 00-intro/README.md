@@ -6,6 +6,8 @@ After finishing this course, you should be able to:
 * debug issues with deploying applications
 * automate deployments
 
+## Overview
+
 The whole course consists of several notebooks, each aimed to be completed under 45 minutes.
 
 These notebooks will contain mostly excercises and will often
@@ -15,8 +17,11 @@ are expected to follow a reference, read it, go back to the notebook
 and note down one or more important highlights from it, if needed.
 
 The notebooks are written in [Markdown](https://daringfireball.net/projects/markdown/basics)
-and stored in a [Git](https://git-scm.com/) repository. Start with creating
-[a clone](https://git-scm.com/docs/git-clone) of this repository.
+and stored in a [Git](https://git-scm.com/) repository.
+
+## Excercise
+
+Start with creating [a clone](https://git-scm.com/docs/git-clone) of this repository.
 
 > Note: if you're reading this on GitHub, read how to
 > create [a fork or GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo),
@@ -38,3 +43,7 @@ gh fork nineinchnick/kubernetes-notebooks
 ```
 
 Now commit your notes. If you've created a fork, push the commits to it.
+
+## Test
+
+1. How does keeping notebooks in Git makes it easier to work with them?
