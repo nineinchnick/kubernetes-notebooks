@@ -19,7 +19,9 @@ First excercise is creating a Kubernetes cluster. You can either do this:
 * or using `kind` locally, on your laptop
 
 * [install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-* [install kind](hhttps://kind.sigs.k8s.io/docs/user/quick-start/#installation)
+* [install kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
+
+### Create a cluster
 
 ```bash
 # list existing clusters, there should be none
@@ -30,17 +32,31 @@ kind create cluster
 
 # list existing clusters, you should see a new one, with a default name
 kind get clusters
+```
 
-# look around the cluster
+### Look around the cluster
+
+```bash
 kubectl get all
+kubectl get all -A
 kubectl get namespaces
 kubectl get pods
 kubectl get pods -A
 kubectl describe pod
 kubectl get pods -o yaml
 
+# get specific pods using label selectors
+kubectl get pod -l k8s-app=kube-dns
+```
+
+> Tip: tired of writing `kubectl` over and over again? Create
+> a shorter alias using `alias k=kubectl`!
+
+### Change something on the cluster
+
+```bash
 # delete a pod
-kubectl delete pod -l k8s-app=coredns
+kubectl delete pod -l k8s-app=kube-dns
 kubectl get pods
 # watch pods for changes
 kubectl get pods -w
@@ -50,6 +66,18 @@ watch kubectl get pods
 # now delete the whole cluster
 kind delete cluster
 # try creating a new cluster again
+kind create cluster
+```
+
+### Explore Kubernetes components
+
+```bash
+# exec into the node
+docker exec -it kind-control-plane bash
+# see all the Kubernetes components running
+ps aux | grep kube
+# some of them are containers, but running using containerd, not Docker
+ctr -n k8s.io containers ls
 ```
 
 ## Test
@@ -61,3 +89,5 @@ kind delete cluster
 ## Extras
 
 Try creating two different kind clusters at once. How to talk to both at once?
+
+Try creating a multi-node cluster. Which components run only on worker nodes?
