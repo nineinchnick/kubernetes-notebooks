@@ -50,7 +50,8 @@ kubectl get pod -l k8s-app=kube-dns
 ```
 
 > Tip: tired of writing `kubectl` over and over again? Create
-> a shorter alias using `alias k=kubectl`!
+> a shorter alias using `alias k=kubectl`! It even works with shell auto-completion,
+> see [the kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) for details.
 
 ### Change something on the cluster
 
