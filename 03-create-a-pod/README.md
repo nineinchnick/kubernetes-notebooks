@@ -48,3 +48,4 @@ kubectl apply -f 03-create-a-pod/pod-pages.yaml
 ## Extras
 
 1. Try to create a secret using only the `kubectl create` command.
+1. Find out what's the largest possible file a secret can hold.

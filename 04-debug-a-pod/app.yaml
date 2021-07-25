@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-printer
+  labels:
+    app: config-printer
+spec:
+  selector:
+    matchLabels:
+      app: config-printer
+  template:
+    metadata:
+      labels:
+        app: config-printer
+    spec:
+      containers:
+        - name: app
+          image: nineinchnick/config-printer:0.2
+          volumeMounts:
+            - name: config
+              mountPath: /etc/config-printe
+      volumes:
+        - name: config
+          configMap:
+            name: config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+data:
+  config.yaml: |
+    some-option: value
